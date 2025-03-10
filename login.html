@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login</title>
+</head>
+<style>
+      *{
+        margin: 0px;
+        padding: 0px;
+        box-sizing: border-box;
+                font-family: 'Helvetica Neue', Arial, sans-serif;
+      }
+      h1{
+        font-size: 4em;
+      }
+      .main {
+        text-align: center;
+        margin-top: 10%;
+        width: 100%;
+      }
+      .left{
+        vertical-align: top;
+        margin-top: 4%;
+        display: inline-block;
+        text-align: left;
+      }
+      .right{
+        margin-left: 10%;
+        display: inline-block;
+      }
+        .input-box{
+          text-align: center;
+          padding: 30px;
+          border-radius: 10px;
+          transition: all ease 0.3s;
+          cursor: pointer;
+          box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+        input{
+          border: 1px solid rgba(0, 0, 0, 0.2);
+          border-radius: 4px;
+          width:320px;
+          height: 40px;
+          padding-left: 10px;
+        }
+        .email{
+          margin-bottom: 10px;
+        }
+        .login-btn{
+          background-color: #1877F2;
+          margin-bottom: 50px;
+          padding: 10px 120px;
+          border: none;
+          color: white;
+          font-size: 1.2em;
+          border-radius:4px;
+          margin: 10px 0px;
+          cursor: pointer;
+        }
+        .login-btn:hover{
+          background-color: #1862c2;
+          
+        }
+        .account-btn{
+          cursor: pointer;
+          color: #fff;
+          font-size: 1.2em;
+          background-color: #3FB626;
+          border: none;
+          border-radius:4px;
+          font-size: 1em;
+          padding: 15px 20px;
+        }
+        .account-btn:hover{
+          background-color: #338f20;
+        }
+        hr{
+          margin: 20px 10px;
+        }
+        .forget{
+          color: #0866ff;
+          text-decoration: none;
+        }
+        .account-btn a{
+          text-decoration: none;
+          color: #fff;
+        }
+        p{
+          font-size: 1.6em;
+          text-align: justify;
+        }
+</style>
+<body>
+  <div class="main">
+    <div class="left">
+      <h1 style="color: #0866ff;">facebook</h1>
+      <p class="">Facebook helps you connect and share <br> with the people in your life.</p>
+    </div>
+
+    <div class="right">
+      <div class="input-box">
+        <input type="text" class="email" id="email" placeholder="Email or phone number">
+        <br>
+        <input type="password" id="password" placeholder="Password">
+        <br>
+        <button class="login-btn">Login</button>
+        <br>
+        <a href="" class="forget">Forgot password?</a>
+        <hr>
+        <button class="account-btn"><a href="./signup.html">Create New Account</a></button>
+      </div>
+    </div>
+  </div>
+  <script>
+    let userData = JSON.parse(localStorage.getItem('userCredits') || "[]");
+    const inputEmail = document.getElementById('email');
+    const inputPassword = document.getElementById('password');
+    const loginBtn = document.querySelector('.login-btn');
+
+    loginBtn.addEventListener('click', Login)
+
+    function Login(){
+
+      if(inputEmail.value === userData.email && inputPassword.value === userData.password){
+        window.location.href = "./dashboard.html";
+      }
+      else{
+        alert("Invalid email or password");
+        window.location.href = "./login.html";
+      }
+    }
+    console.log(userData.email);
+    console.log(userData.password);
+    
+  
+    
+  </script>
+</body>
+</html>
